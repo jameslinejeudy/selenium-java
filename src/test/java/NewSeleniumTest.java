@@ -5,12 +5,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import org.junit.Test;//import this so the @test works
 import static org.junit.Assert.assertEquals;
 
 
 public class NewSeleniumTest{
     @Test
-    public void smarterTest(){
+    public void smartetest(){
     
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");

@@ -14,7 +14,16 @@ There are 7 steps to a selenium script. The first 5 steps are the core of your s
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement username = wait.until(   // Wait until element is visible, then interact
-            ExpectedConditions.visibilityOfElementLocated(By.id("user-name"))
+            ExpectedConditions.visibilityOfElementLocated(By.id("user-name"))//element found using inspect
+            //there are many findElement(By. :
+            1. (By.name("commit")
+            2. By.classname("nav-item") 
+            3. By.tagName("a") 
+            4. By.cssSelector("a(data-test=sign-in"))
+            5. By.xpath, 
+            6. By.linkText("Sign In")
+            7. By.partialLinkText("Sign")
+            8. Id is one of the best locators to use for element identifications
         );
 
 5. perform the action on the element
@@ -35,4 +44,6 @@ There are 7 steps to a selenium script. The first 5 steps are the core of your s
 
 7. Quit the test- it ends the drivers in an instant to stop mutiple windows opening
         driver.quit()
+
+if you have a hard time locating an element for test, go on google and inspect element to see the tag locators, and theres also a search bar to find items on page. Learn how to identify elements on browser/chrome, you can copy elemetn by right clicking
 
