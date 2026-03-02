@@ -1,7 +1,7 @@
 There are 7 steps to a selenium script. The first 5 steps are the core of your selenium script. The last 2 steps are for reporting and cleanup purposes.    
 
 1. Instantiate a Webdriver object to drive the browser you want to use in your tests
-        1. set location of chromedriver path: System.setProperty()
+        1. Set location of chromedriver path: System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
         2. WebDriver driver = new ChromeDriver();
 
 2. Navigate to the webpage you want to test
@@ -11,9 +11,28 @@ There are 7 steps to a selenium script. The first 5 steps are the core of your s
         driver.findElement(By.id("sign-in")); //id value is called sign in 
 
 4. Ensure the browser is in the correct state to interact with that element
-        Web
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement username = wait.until(   // Wait until element is visible, then interact
+            ExpectedConditions.visibilityOfElementLocated(By.id("user-name"))
+        );
+
 5. perform the action on the element
 6. Record the test result
+        public TestWatcher watcher = new TestWatcher(){
+            @Override
+            protected void failed(Throwable e, Description description){
+                // Code to take a screenshot when the test fails
+                TakesScreenshot ts = (TakesScreenshot) driver;
+                File source = ts.getScreenshotAs(OutputType.FILE);
+                try {
+                    FileUtils.copyFile(source, new File("./Screenshots/" + description.getMethodName() + ".png"));
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+
 7. Quit the test- it ends the drivers in an instant to stop mutiple windows opening
         driver.quit()
 
