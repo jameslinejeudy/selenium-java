@@ -1,0 +1,19 @@
+There are 7 steps to a selenium script. The first 5 steps are the core of your selenium script. The last 2 steps are for reporting and cleanup purposes.    
+
+1. Instantiate a Webdriver object to drive the browser you want to use in your tests
+        1. set location of chromedriver path: System.setProperty()
+        2. WebDriver driver = new ChromeDriver();
+
+2. Navigate to the webpage you want to test
+        driver.get("https://www.instagram.com");
+
+3. locate the element on the webpage you need to interact with 
+        driver.findElement(By.id("sign-in")); //id value is called sign in 
+
+4. Ensure the browser is in the correct state to interact with that element
+        Web
+5. perform the action on the element
+6. Record the test result
+7. Quit the test- it ends the drivers in an instant to stop mutiple windows opening
+        driver.quit()
+
