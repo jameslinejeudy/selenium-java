@@ -1,6 +1,5 @@
 package testNGDataDriven;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,7 +18,6 @@ public class UserLoginTests {
     // Pay extra attention to the annotations, which are a bit different than the JUnit ones
     @BeforeMethod
     public void setup() {
-        WebDriverManager.chromedriver().setup();
         driver = getDriver();
         driver.get("https://www.saucedemo.com/");
     }

@@ -1,7 +1,6 @@
 package csvDataDriven;
 
 import au.com.bytecode.opencsv.CSVReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -45,7 +44,6 @@ public class CSVExercise {
 
     @BeforeEach
     public void setup() {
-        WebDriverManager.chromedriver().setup();
         driver = getDriver();
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");

@@ -1,6 +1,5 @@
 package enumDataDriven;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +18,6 @@ public class EnumDataDrivenTests {
 
     @BeforeEach
     public void setup() {
-        WebDriverManager.chromedriver().setup();
         driver = getDriver();
         driver.get("https://www.saucedemo.com/");
     }

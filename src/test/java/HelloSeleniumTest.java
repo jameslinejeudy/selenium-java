@@ -1,18 +1,18 @@
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+//make sure to import
 
 public class HelloSeleniumTest {
+    //add annotation (if error add maven dependency?)
     @Test
     public void firstTest()
     {
-        //Telling the system where to find chromedriver on Mac.
-        //System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
-        //Here's how to do it on Windows
-        System.setProperty("webdriver.chrome.driver", "resources/windows/chromedriver.exe");
+        //Selenium 4+ has built-in Selenium Manager, no need to set driver path manually
 
+        //Next create a brand new driver
         WebDriver driver = new ChromeDriver();
-        driver.get("https://www.saucedemo.com/");
-        driver.quit();
+        driver.get("https://www.saucedemo.com/");//
+        driver.quit(); // kill driver after your done
     }
 }

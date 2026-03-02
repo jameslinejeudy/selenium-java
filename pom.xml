@@ -7,6 +7,7 @@
     <artifactId>selenium.java</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!--need maven plugin-->
     <build>
         <pluginManagement>
             <plugins>
@@ -16,7 +17,7 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.1</version>
                     <configuration>
-                        <source>11</source>
+                        <source>11</source> <!--make sure configured, this is the java function that we are using-->
                         <target>11</target>
                     </configuration>
                 </plugin>
@@ -37,20 +38,13 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>4.27.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- https://github.com/bonigarcia/webdrivermanager/ -->
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>4.0.0</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>

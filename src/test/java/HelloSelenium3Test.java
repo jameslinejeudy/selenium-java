@@ -1,4 +1,3 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,9 +9,7 @@ public class HelloSelenium3Test {
     @Test
     public void smarterTest()
     {
-        //Use WebDriverManager Maven package to download the correct version of
-        //a driver to automate Chrome browser
-        WebDriverManager.chromedriver().setup();
+        //Selenium 4+ has built-in Selenium Manager that downloads the correct driver
         //Set variable driver to an instance of ChromeDriver
         WebDriver driver = new ChromeDriver();
         //Open the URL

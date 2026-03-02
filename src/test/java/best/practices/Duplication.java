@@ -9,10 +9,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.junit.Assert.assertTrue;
 
 public class Duplication {
     WebDriver driver;
+    WebDriverWait wait;
     @Before
     public void setup()
     {
@@ -29,7 +32,7 @@ public class Duplication {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.className("btn_action")).submit();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         boolean isDisplayed = wait.until(
                 ExpectedConditions.presenceOfElementLocated(By.id("inventory_filter_container"))).isDisplayed();
         assertTrue(isDisplayed);
@@ -40,7 +43,7 @@ public class Duplication {
         driver.findElement(By.id("user-name")).sendKeys("problem_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.className("btn_action")).submit();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         boolean isDisplayed = wait.until(
                 ExpectedConditions.presenceOfElementLocated(By.id("inventory_filter_container"))).isDisplayed();
         assertTrue(isDisplayed);
@@ -66,7 +69,7 @@ public class Duplication {
         assertTrue(isDisplayed);
     }
     private boolean waitUntilDisplayed(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         return wait.until(
                 ExpectedConditions.presenceOfElementLocated(locator)).isDisplayed();
     }
@@ -84,8 +87,7 @@ public class Duplication {
     }
 
     private WebDriver getDriver() {
-        //Telling the system where to find chromedriver. On Windows you also need to add .exe
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
+        //Selenium 4+ has built-in Selenium Manager, no need to set driver path manually
         return new ChromeDriver();
     }
 }

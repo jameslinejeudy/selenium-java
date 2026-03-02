@@ -1,7 +1,5 @@
 package testNGDataDriven;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,7 +18,6 @@ public class TestNGDataDrivenExercise {
 
     @BeforeMethod
     public void setup() {
-        WebDriverManager.chromedriver().setup();
         driver = getDriver();
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");

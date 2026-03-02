@@ -1,6 +1,5 @@
 package testingClassData;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.After;
@@ -23,7 +22,6 @@ public class DataProviderExercise {
 
     @Before
     public void setup() {
-        WebDriverManager.chromedriver().setup();
         driver = getDriver();
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
